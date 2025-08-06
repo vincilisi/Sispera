@@ -1,0 +1,65 @@
+.header {
+    background-image: url('/media/sfondo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: var(--font-sans);
+}
+
+.titolo {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 20px;
+
+}
+
+.box {
+    border: dotted 2px white;
+    min-height: 150px;
+    max-width: 250px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.box:hover {
+    border: 3px solid white;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.icon {
+    font-size: 3rem;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.userHeight {
+    height: 70vh;
+
+}
+
+
+.movies {
+    background-image: url('/media/sfondo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: var(--font-sans);
+    background-attachment: fixed;
+}
+
+.cardImg {
+    height: 250px;
+    object-position: center;
+}

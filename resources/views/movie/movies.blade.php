@@ -14,7 +14,7 @@
                             <h5 class="card-title">{{$movie['title']}}</h5>
                             <h5 class="card-title muted">{{$movie['director']}}</h5>
                             <p class="card-text">{{$movie['geners']}}</p>
-                            <a href="{{ route('movie.datail', ['id'=>$movie['id']])}}" class="btn btn-primary">Leggi di più</a>
+                            <a href="{{ route('movie.detail', ['id'=>$movie['id']])}}" class="btn btn-primary">Leggi di più</a>
                         </div>
                     </div>
                 </div>

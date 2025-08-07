@@ -7,12 +7,17 @@
                 </div>
                 @foreach ($movies as $movie)
                 <div class="col-12 col-md-3">
-                   <x-card
-                   :movie="$movie"
-                   />
-                    </div>
+                    <x-card
+                    :movie="$movie"
+                    />
                 </div>
-                @endforeach
             </div>
+                <form action="{{ route('movies.destroy', $movie) }}" method="POST" onsubmit="return confirm('Confermi eliminazione?')">
+            @csrf
+            @method('DELETE')
+            <button type="submit">Elimina</button>
+        </form>
+            @endforeach
         </div>
-    </x-layout>
+    </div>
+</x-layout>

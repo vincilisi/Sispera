@@ -14,7 +14,7 @@
                     </ul>
                 </div>
                 @endif
-                <form method="POST" action="{{ route('movie.submit') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('movies.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <label for="title" class="form-label">Titolo:</label>

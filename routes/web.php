@@ -9,28 +9,22 @@ Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 
 // About us
 Route::get('/about', [PublicController::class, 'aboutUs'])->name('aboutUs');
-
 Route::get('/about/detail/{name}', [PublicController::class, 'aboutUsDetail'])->name('aboutUsDetail');
 
 // Contatti
 Route::get('/contact', [PublicController::class, 'contacts'])->name('contacts');
-
-// Movies list
-Route::get('/movies', [MovieController::class, 'movieList'])->name('movie-list');
-
-// Movie detail
-Route::get('/movies/detail/{id}', [MovieController::class, 'movieDetail'])->name('movie.detail');
-
-
-// invio email
-
 Route::post('/contact-us', [PublicController::class, 'contactUs'])->name('contactUs');
 
+// Rotte pubbliche per i film (lista e dettaglio)
+Route::get('/movies', [MovieController::class, 'movieList'])->name('movies.index');
+Route::get('/movies/{movie}', [MovieController::class, 'movieDetail'])->name('movies.show');
 
-// Insermento Film
+// Rotte protette (solo utenti autenticati) per creare, modificare e cancellare film
+Route::middleware('auth')->group(function () {
+    Route::get('/movie/create', [MovieController::class, 'create'])->name('movies.create');
+    Route::post('/movies', [MovieController::class, 'store'])->name('movies.store');
 
-Route::get('/movie/create', [MovieController::class, 'create'])->name('movie.create');
-Route::post('/movie/submit', [MovieController::class, 'store'])->name('movie.submit');
-
-// Add this route for movie-detail
-Route::get('/movies/{movie}', [MovieController::class, 'movieDetail'])->name('movie-detail');
+    Route::get('/movies/{movie}/edit', [MovieController::class, 'edit'])->name('movies.edit');
+    Route::put('/movies/{movie}', [MovieController::class, 'update'])->name('movies.update');
+    Route::delete('/movies/{movie}', [MovieController::class, 'destroy'])->name('movies.destroy');
+});

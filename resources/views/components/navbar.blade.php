@@ -20,8 +20,8 @@
             I nostri servizi
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="{{ route('movie-list') }}">Tutti i nostri film</a></li>
-            <li><a class="dropdown-item" href="{{ route('movie.create') }}">Carica i tuoi Film</a></li>
+            <li><a class="dropdown-item" href="{{ route('movies.index') }}">Tutti i nostri film</a></li>
+            <li><a class="dropdown-item" href="{{ route('movies.create') }}">Carica i tuoi Film</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">

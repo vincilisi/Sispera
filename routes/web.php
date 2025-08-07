@@ -31,3 +31,6 @@ Route::post('/contact-us', [PublicController::class, 'contactUs'])->name('contac
 
 Route::get('/movie/create', [MovieController::class, 'create'])->name('movie.create');
 Route::post('/movie/submit', [MovieController::class, 'store'])->name('movie.submit');
+
+// Add this route for movie-detail
+Route::get('/movies/{movie}', [MovieController::class, 'movieDetail'])->name('movie-detail');

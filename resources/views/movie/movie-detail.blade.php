@@ -1,5 +1,4 @@
 <x-layout>
-    <x-navbar />
     <header>
         <div class="container-fluid movies">
             <div class="row h-100 d-flex flex-culomn justify-content-center align-items-center">
@@ -9,10 +8,11 @@
                 <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center">
                 <h3 class="titolo text-center">Titolo:{{$movie['title']}}</h3>
                 <h4>Regista:{{$movie['director']}}</h4>
-                <p>Genere:{{$movie['geners']}}</p>
+                <p>Plot:{{$movie['plot']}}</p>
             </div>
             <div class="col-12 col-md-6">
-                <img src="{{ $movie['img'] }}" alt="poster di {{ $movie['title'] }}">
+                <img src="{{ Storage::url($movie->img) }}" alt="Poster di {{ $movie->title }}">
+
             </div>
             </div>
             

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('style.css') }}">
 </head>
 <body>
+    <x-navbar/>
     {{ $slot }}
 </body>
 </html>

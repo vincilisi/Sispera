@@ -1,5 +1,4 @@
 <x-layout>
-    <x-navbar />
     <header>
         <div class="container-fluid movies">
             {{-- Sezione Contatti Social --}}

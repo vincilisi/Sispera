@@ -1,5 +1,4 @@
 <x-layout>
-    <x-navbar />
     <div class="container-fluid">
         <div class="row text-center">
             <h2>Inserisci il tuo fil Preferito:</h2>

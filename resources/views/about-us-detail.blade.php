@@ -1,5 +1,4 @@
 <x-layout>
-    <x-navbar />
     <header>
         <div class="container-fluid header">
             <div class="row h-100 justify-content-center align-items-center">

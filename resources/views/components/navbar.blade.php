@@ -12,7 +12,6 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ route('aboutUs') }}">Chi Siamo</a>
         </li>
-        </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ route('contacts') }}">Contatti</a>
         </li>
@@ -23,6 +22,29 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="{{ route('movie-list') }}">Tutti i nostri film</a></li>
             <li><a class="dropdown-item" href="{{ route('movie.create') }}">Carica i tuoi Film</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            @auth
+              Ciao, {{ Auth::user()->name }}
+            @else
+              Ciao, Ospite
+            @endauth
+          </a>
+          <ul class="dropdown-menu">
+            @guest
+              <li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
+              <li><a class="dropdown-item" href="{{ route('register') }}">Register</a></li>
+            @endguest
+            @auth
+              <li>
+                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('form-logout').submit();" class="dropdown-item">Logout</a>
+                <form id="form-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+                </form>
+              </li>
+            @endauth
           </ul>
         </li>
       </ul>

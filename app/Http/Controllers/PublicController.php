@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PublicController extends Controller
 {
@@ -36,5 +39,21 @@ class PublicController extends Controller
     public function contacts()
     {
         return view('contacts');
+    }
+
+    public function contactUs(Request $request)
+    {
+        $user = $request->input('user');
+        $email = $request->input('email');
+        $message = $request->input('message');
+        $userData = compact('user', 'email', 'message');
+
+        try {
+            Mail::to($email)->send(new ContactMail($userData));
+        } catch (Exception $e) {
+            return redirect()->route('homepage')->with('emailError', "Si è verificato un problema,riprova piu' tardi");
+        }
+
+        return redirect(route('homepage'))->with('emailSent', "L'email è stata inviata correttamente, Grazie");
     }
 }

@@ -20,3 +20,8 @@ Route::get('/movies', [MovieController::class, 'movieList'])->name('movie-list')
 
 // Movie detail
 Route::get('/movies/detail/{id}', [MovieController::class, 'movieDetail'])->name('movie.detail');
+
+
+// invio email
+
+Route::post('/contact-us', [PublicController::class, 'contactUs'])->name('contactUs');

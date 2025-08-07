@@ -25,3 +25,9 @@ Route::get('/movies/detail/{id}', [MovieController::class, 'movieDetail'])->name
 // invio email
 
 Route::post('/contact-us', [PublicController::class, 'contactUs'])->name('contactUs');
+
+
+// Insermento Film
+
+Route::get('/movie/create', [MovieController::class, 'create'])->name('movie.create');
+Route::post('/movie/submit', [MovieController::class, 'store'])->name('movie.submit');

@@ -2,31 +2,42 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Movie;
 use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
-    public $movies = [
-        ['id' => 1, 'title' => 'The Conjuring', 'director' => 'James Wan', 'img' => '/media/The_Conjuring_poster.jpg', 'geners' => 'Horror'],
-        ['id' => 2, 'title' => "L'amore non va in vacanza", 'director' => 'Nancy Meyers', 'img' => "/media/L'amore_non_va_in_vacanza.jpg", 'geners' => 'Romantico'],
-        ['id' => 3, 'title' => "Raya e l'ultimo drago", 'director' => 'D.Hall,C.L.Estrada', 'img' => 'media/RayaMovie.png', 'geners' => 'Animazione'],
-        ['id' => 4, 'title' => 'Inception', 'director' => 'Christopher Nolan', 'img' => '/media/Inception.jpg', 'geners' => 'Thriller'],
-        ['id' => 5, 'title' => 'In vacanza su Marte', 'director' => 'Neri Parenti', 'img' => 'media/In_vacanza_su_Marte.png', 'geners' => 'Comico'],
-    ];
 
     public function movieList()
     {
-
-        return view('movie.movies', ['movies' => $this->movies]);
+        $movies = Movie::all();
+        return view('movie.movies', ['movies' => $movies]);
     }
 
-    public function movieDetail($id)
-    {
+    // public function movieDetail($id)
+    // {
 
-        foreach ($this->movies as $movie) {
-            if ($id == $movie['id']) {
-                return view('movie.movie-detail', ['movie' => $movie]);
-            }
-        }
+    //     foreach ($this->movies as $movie) {
+    //         if ($id == $movie['id']) {
+    //             return view('movie.movie-detail', ['movie' => $movie]);
+    //         }
+    //     }
+    // }
+
+    public function create()
+    {
+        return view('movie.create');
+    }
+
+    public function store(Request $request)
+    {
+        $movie = Movie::create([
+            'title' => $request->title,
+            'director' => $request->director,
+            'year' => $request->year,
+            'plot' => $request->plot,
+        ]);
+
+        return redirect()->route('homepage')->with('successMessage', "Il tuo film è stato caricato correttamente");
     }
 }

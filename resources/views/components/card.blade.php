@@ -11,7 +11,8 @@
         <h5 class="card-title">{{ $movie->title }}</h5>
         <h5 class="card-title muted">{{ $movie->director }}</h5>
         <p class="card-text">{{ $movie->geners }}</p>
+        <p>Creato da: {{$movie->user->name}}</p>
         <a href="{{ route('movies.show', $movie) }}" class="btn btn-primary">Leggi di più</a>
-        <a href="{{ route('movies.edit', $movie) }}" class="btn btn-primary">Modifica</a>
+
     </div>
 </div>

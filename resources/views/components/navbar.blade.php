@@ -44,6 +44,7 @@
                   @csrf
                 </form>
               </li>
+                          <li><a class="dropdown-item" href="{{ route('profile.show') }}">Profilo</a></li>
             @endauth
           </ul>
         </li>

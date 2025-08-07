@@ -12,11 +12,6 @@
                     />
                 </div>
             </div>
-                <form action="{{ route('movies.destroy', $movie) }}" method="POST" onsubmit="return confirm('Confermi eliminazione?')">
-            @csrf
-            @method('DELETE')
-            <button type="submit">Elimina</button>
-        </form>
             @endforeach
         </div>
     </div>

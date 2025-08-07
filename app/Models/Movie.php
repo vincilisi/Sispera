@@ -14,6 +14,12 @@ class Movie extends Model
         'director',
         'year',
         'plot',
-        'img'
+        'img',
+        'user_id'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

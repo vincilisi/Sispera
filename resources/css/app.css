@@ -1,5 +1,6 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 @import "bootstrap-icons/font/bootstrap-icons.css";
+@import '@yaireo/tagify/dist/tagify.css';
 
 /* Font personalizzato (opzionale) */
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans&display=swap');

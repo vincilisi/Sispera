@@ -14,9 +14,17 @@
                     <img src="{{ Storage::url($movie->img) }}" alt="Poster di {{ $movie->title }}">
                     
                 </div>
+                <p>Tags:</p>
+                <ul>
+                    @forelse ($movie->tags as $tag)
+                    <li>{{ $tag->name }}</li>
+                    @empty
+                    <li>Nessun tag associato</li>
+                    @endforelse
+                </ul>
                 @auth
-                    @if ($movie->user_id == Auth::id())
-                    <div class="d-flex justify-content-center mt-4 gap-2">
+                @if ($movie->user_id == Auth::id())
+                <div class="d-flex justify-content-center mt-4 gap-2">
                     <form action="{{ route('movies.edit', $movie) }}" method="GET">
                         @csrf
                         <button type="submit" class="btn btn-primary">Modifica</button>

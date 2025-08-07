@@ -4,6 +4,7 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TagController;
 
 // Homepage
 Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
@@ -35,3 +36,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 });
+
+
+
+Route::get('/tags/create', [TagController::class, 'create'])->name('tags.create');
+Route::post('/tags', [TagController::class, 'store'])->name('tags.store');

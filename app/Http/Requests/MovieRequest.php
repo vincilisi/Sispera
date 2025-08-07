@@ -27,6 +27,8 @@ class MovieRequest extends FormRequest
             'year' => 'required|date',
             'plot' => 'required|string',
             'img' => 'required|image|mimes:jpg,jpeg,png|',
+            'tags' => 'nullable|array',
+            'tags.*' => 'string',
         ];
     }
     public function messages()
